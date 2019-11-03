@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //So könnte man eine Seite nur für einen Admin aufrufbar machen
+        /*
+        $user = Auth::user();
+        $user->authorizeRoles(admin);
+        */
         return view('home');
     }
 }
