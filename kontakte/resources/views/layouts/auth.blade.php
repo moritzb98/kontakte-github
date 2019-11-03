@@ -73,18 +73,7 @@
         </nav>
 
         <main class="py-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col sidebar">
-                        <div class="card">
-                        </div>
-                    </div>
-                    
-                    @yield('content')
-                </div>
-                
-            </div>
-            
+            @yield('content')
         </main>
     </div>
 </body>
