@@ -18,11 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -75,12 +76,33 @@
         <main class="py-4">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col sidebar">
-                        <div class="card">
+                    <div class="col-md-2">
+                        <div class="list-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-auto mr-auto">
+                                            <p class="headline">Kontaktliste</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <p>+</p>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                                </div>
+                            
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="content">
+                            @yield('content')
                         </div>
                     </div>
                     
-                    @yield('content')
                 </div>
                 
             </div>
