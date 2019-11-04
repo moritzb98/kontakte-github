@@ -20,9 +20,9 @@ class CreateKontaktsTable extends Migration
             $table->string('firstname');
             $table->string('address');
             $table->tinyInteger('housenumber');
-            $table->string('postalcode');
-            $table->string('city');
-            $table->smallInteger('mobilenumber');
+            $table->string('plz');
+            $table->string('stadt');
+            $table->smallInteger('tel');
             $table->timestamps();
         });
     }

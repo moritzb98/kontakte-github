@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kontakt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KontaktController extends Controller
 {
@@ -41,12 +42,30 @@ class KontaktController extends Controller
                 'inputFirsttName' => 'required'
             ]);
         };
-         /*  
-         
-         
-         $request->validate([
-            'inputLastName' => 'required'
-        ]);*/
+        
+        if($_POST['housenumber'] == null){
+            $_POST['housenumber'] = 0;
+        }
+
+        if($_POST['tel'] == null){
+            $_POST['tel'] = 0;
+        }
+
+        $data = [
+            'user_id' => Auth::user()->id,
+            'lastname' => $_POST['lastname'], 
+            'firstname' => $_POST['firstname'], 
+            'address' => $_POST['address'],
+            'housenumber' => $_POST['housenumber'],
+            'plz' => $_POST['plz'],
+            'stadt' => $_POST['stadt'],
+            'tel' => $_POST['tel']
+        ];
+
+
+        Kontakt::create($data); 
+
+        return view('home');
     }
 
     /**
