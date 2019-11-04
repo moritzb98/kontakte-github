@@ -14,7 +14,7 @@ class KontaktController extends Controller
      */
     public function index()
     {
-        //
+        return view('layouts.kontakthinzu');
     }
 
     /**
@@ -35,7 +35,18 @@ class KontaktController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($_POST['lastname']==null && $_POST['firstname']==null){
+            $request->validate([
+                'inputLastName' => 'required',
+                'inputFirsttName' => 'required'
+            ]);
+        };
+         /*  
+         
+         
+         $request->validate([
+            'inputLastName' => 'required'
+        ]);*/
     }
 
     /**

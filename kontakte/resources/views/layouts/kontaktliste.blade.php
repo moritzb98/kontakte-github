@@ -6,7 +6,7 @@
                 <p class="headline">Kontaktliste</p>
             </div>
             <div class="col-auto">
-                <p>+</p>
+                <a href="/kontakte-github/kontakte/public/kontakt">+</a>
             </div>
             </div>
                 <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>

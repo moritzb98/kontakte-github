@@ -15,9 +15,14 @@ class CreateKontaktsTable extends Migration
     {
         Schema::create('kontakts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nachname');
-            $table->string('vorname');
-            $table->varchar('tel_nummer');
+            $table->unsignedInteger('user_id');
+            $table->string('lastname');
+            $table->string('firstname');
+            $table->string('address');
+            $table->tinyInteger('housenumber');
+            $table->string('postalcode');
+            $table->string('city');
+            $table->smallInteger('mobilenumber');
             $table->timestamps();
         });
     }

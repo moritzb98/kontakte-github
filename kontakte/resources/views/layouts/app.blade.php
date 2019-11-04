@@ -83,6 +83,9 @@
                         <div class="content">
                             @yield('content')
                         </div>
+                        <div class="form">
+                            @yield('form')
+                        </div>
                     </div>
                     
                 </div>
