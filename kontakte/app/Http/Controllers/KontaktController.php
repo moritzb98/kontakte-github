@@ -65,9 +65,10 @@ class KontaktController extends Controller
             'tel' => $_POST['tel']
         ];
 
-        $data=DB::select('select * from kontakts');
+        
         Kontakt::create($datanew); 
         $request->session()->flash('message', 'Kontakt wurde erstellt.');
+        $data=DB::select('select * from kontakts');
         return view('layouts.index', ['data'=>$data]);
     }
 
