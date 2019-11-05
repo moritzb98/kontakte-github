@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kontakt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class KontaktController extends Controller
 {
@@ -13,9 +14,10 @@ class KontaktController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Kontakt $kontakts)
+    public function index()
     {
-        return view('layouts.index', compact('kontakts'));
+        $data=DB::select('select * from kontakts');
+        return view('layouts.index',['data'=>$data]);
         
     }
 
@@ -52,7 +54,7 @@ class KontaktController extends Controller
             $_POST['tel'] = 0;
         }
 
-        $data = [
+        $datanew = [
             'user_id' => Auth::user()->id,
             'lastname' => $_POST['lastname'], 
             'firstname' => $_POST['firstname'], 
@@ -63,10 +65,10 @@ class KontaktController extends Controller
             'tel' => $_POST['tel']
         ];
 
-
-        Kontakt::create($data); 
+        $data=DB::select('select * from kontakts');
+        Kontakt::create($datanew); 
         $request->session()->flash('message', 'Kontakt wurde erstellt.');
-        return view('layouts.index');
+        return view('layouts.index', ['data'=>$data]);
     }
 
     /**

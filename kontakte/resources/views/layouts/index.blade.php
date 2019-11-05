@@ -15,8 +15,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Balbals
+                    
+                    
+                    @foreach($data as $kontakt)
+                            <table>
+                                <tr>
+                                    <td>{{$kontakt->id}}</td>
+                                </tr>
+                            </table>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
