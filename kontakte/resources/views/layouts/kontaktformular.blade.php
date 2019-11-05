@@ -1,12 +1,7 @@
-@if($errors->any())
-<div class="alert alert-danger">
-    Es muss ein Vor- oder Nachname eingetragen werden!
-</div> 
-@endif
+
 
 <form action="{{route('kontakt.store')}}" method="post">
     @csrf
-    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputLastName">Lastname</label>

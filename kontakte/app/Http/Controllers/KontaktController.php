@@ -25,7 +25,7 @@ class KontaktController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.kontakthinzu');
     }
 
     /**
@@ -64,8 +64,8 @@ class KontaktController extends Controller
 
 
         Kontakt::create($data); 
-
-        return view('home');
+        $request->session()->flash('message', 'Kontakt wurde erstellt.');
+        return view('layouts.kontakthinzu');
     }
 
     /**
