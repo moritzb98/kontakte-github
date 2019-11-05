@@ -13,9 +13,10 @@ class KontaktController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Kontakt $kontakts)
     {
-        return view('layouts.kontakthinzu');
+        return view('layouts.index', compact('kontakts'));
+        
     }
 
     /**
@@ -65,7 +66,7 @@ class KontaktController extends Controller
 
         Kontakt::create($data); 
         $request->session()->flash('message', 'Kontakt wurde erstellt.');
-        return view('layouts.kontakthinzu');
+        return view('layouts.index');
     }
 
     /**

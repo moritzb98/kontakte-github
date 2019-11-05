@@ -1,8 +1,11 @@
-
 @extends('layouts.app')
+
 
 @section('content')
         <div class="col">
+        <div class="message">
+            @include('messages.message')
+        </div>
             <div class="card">
                 <div class="card-header">Kontaktdetails</div>
 

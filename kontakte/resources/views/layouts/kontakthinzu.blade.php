@@ -1,9 +1,7 @@
 @extends ('layouts.app')
 
 @section('form')
-<div class="message">
-    @include('messages.message')
-</div>
+
 @if($errors->any())
 <div class="alert alert-danger">
     Es muss ein Vor- oder Nachname eingetragen werden!
@@ -15,4 +13,5 @@
         @include('layouts.kontaktformular')
     </div>
 </div>
+
 @endsection

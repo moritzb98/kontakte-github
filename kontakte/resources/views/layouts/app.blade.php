@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/kontakt') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -50,6 +50,7 @@
                                 </li>
                             @endif
                         @else
+                            <a class="nav-link" href="/kontakte-github/kontakte/public/kontakt" role="button">Home</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} ({{ Auth::user()->roles()->first()->description }}) <span class="caret"></span>
@@ -78,7 +79,24 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="list-group">
-                         @include ('layouts.kontaktliste')
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-auto mr-auto">
+                                        <p class="headline">Kontaktliste</p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/kontakte-github/kontakte/public/kontakt/create">+</a>
+                                    </div>
+                                    </div>
+                   
+                                        <a href="#" class="list-group-item list-group-item-action">Hallo</a>
+                            
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </div>
                          <div class="col">
                         <div class="content">
                             @yield('content')
