@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['data'=>$data])
 
 
 @section('content')
@@ -15,15 +15,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    
-                    @foreach($data as $kontakt)
-                            <table>
-                                <tr>
-                                    <td>{{$kontakt->id}}</td>
-                                </tr>
-                            </table>
-                    @endforeach
                     
                 </div>
             </div>

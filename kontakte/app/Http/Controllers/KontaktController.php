@@ -28,7 +28,8 @@ class KontaktController extends Controller
      */
     public function create()
     {
-        return view('layouts.kontakthinzu');
+        $data=DB::select('select * from kontakts');
+        return view('layouts.kontakthinzu', ['data'=>$data]);
     }
 
     /**
