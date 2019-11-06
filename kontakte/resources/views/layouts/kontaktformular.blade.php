@@ -4,17 +4,17 @@
     @csrf
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputLastName">Lastname</label>
+      <label for="inputLastName">Nachname</label>
       <input type="text" class="form-control" id="inputLastName" placeholder="Lastname" name="lastname">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputFirstName">Firstname</label>
+      <label for="inputFirstName">Vorname</label>
       <input type="text" class="form-control" id="inputFirstName" placeholder="Firstname" name="firstname">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-10">
-        <label for="inputAddress">Address</label>
+        <label for="inputAddress">Straße</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="Hauptstraße" name="address">
     </div>
     <div class="form-group col-md-2">

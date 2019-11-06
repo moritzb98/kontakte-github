@@ -22,3 +22,5 @@ Route::get('/kontakt', 'KontaktController@index')->name('home');
 Route::resources([
     'kontakt' => 'KontaktController'
 ]);
+
+Route::get('/kontakt/kontaktdetails', 'KontaktController@show');

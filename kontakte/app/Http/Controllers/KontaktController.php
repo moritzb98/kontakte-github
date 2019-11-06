@@ -82,9 +82,11 @@ class KontaktController extends Controller
      * @param  \App\Kontakt  $kontakt
      * @return \Illuminate\Http\Response
      */
-    public function show(Kontakt $kontakt)
+    public function show() //Parameter eventuell: Kontakt $kontakt
     {
-        //
+        $user_id = Auth::user()->id;
+        $data=DB::select("select * from kontakts where user_id='$user_id'");
+        return view('layouts.kontaktdetails',['data'=>$data]);
     }
 
     /**
@@ -93,9 +95,11 @@ class KontaktController extends Controller
      * @param  \App\Kontakt  $kontakt
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kontakt $kontakt)
+    public function edit() //Parameter eventuell: Kontakt $kontakt
     {
-        //
+        $user_id = Auth::user()->id;
+        $data=DB::select("select * from kontakts where user_id='$user_id'");
+        return view('layouts.index',['data'=>$data]);
     }
 
     /**

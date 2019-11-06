@@ -1,5 +1,4 @@
-@extends('layouts.app', ['data'=>$data])
-
+@extends('layouts.app')
 
 @section('content')
         <div class="col">
@@ -15,8 +14,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
                 </div>
+                 
             </div>
         </div>
 @endsection
