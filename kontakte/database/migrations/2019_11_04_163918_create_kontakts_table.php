@@ -22,7 +22,7 @@ class CreateKontaktsTable extends Migration
             $table->tinyInteger('housenumber');
             $table->string('plz');
             $table->string('stadt');
-            $table->smallInteger('tel');
+            $table->string('tel');
             $table->timestamps();
         });
     }

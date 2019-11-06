@@ -20,41 +20,42 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="inputLastName">Nachname</label>
-                            <input type="text" class="form-control details" id="inputLastName" value="{{$data[0]->lastname}}" name="lastname">
+                            <input type="text" class="form-control details" id="inputLastName" value="{{$kontakt->lastname}}" name="lastname">
                             </div>
                             <div class="form-group col-md-6">
                             <label for="inputFirstName">Vorname</label>
-                            <input type="text" class="form-control details" id="inputFirstName" value="{{$data[0]->firstname}}" name="firstname">
+                            <input type="text" class="form-control details" id="inputFirstName" value="{{$kontakt->firstname}}" name="firstname">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-10">
                                 <label for="inputAddress">Straße</label>
-                                <input type="text" class="form-control details" id="inputAddress" value="{{$data[0]->address}}" name="address">
+                                <input type="text" class="form-control details" id="inputAddress" value="{{$kontakt->address}}" name="address">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="inputHousenumber">Hausnummer</label>
-                                <input type="text" class="form-control details" id="inputHousenumber" value="{{$data[0]->housenumber}}" name="housenumber">
+                                <input type="text" class="form-control details" id="inputHousenumber" value="{{$kontakt->housenumber}}" name="housenumber">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-2">
                             <label for="inputPLZ">PLZ</label>
-                            <input type="text" class="form-control" id="inputPLZ" value="{{$data[0]->plz}}" name="plz">
+                            <input type="text" class="form-control" id="inputPLZ" value="{{$kontakt->plz}}" name="plz">
                             </div>
                             <div class="form-group col-md-5">
                             <label for="inputCity">Stadt</label>
-                            <input type="text" class="form-control" id="inputCity" value="{{$data[0]->stadt}}" name="stadt">
+                            <input type="text" class="form-control" id="inputCity" value="{{$kontakt->stadt}}" name="stadt">
                             </div>
                             <div class="form-group col-md-5">
                             <label for="inputNumber">Telefonnummer</label>
-                            <input type="tel" class="form-control" id="inputNumber" value="{{$data[0]->tel}}" name="tel">
+                            <input type="tel" class="form-control" id="inputNumber" value="{{$kontakt->tel}}" name="tel">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Fertig</button>
+                        <button type="submit" class="btn btn-primary">Neu abspeichern</button>
                     </form>
                 </div>
                  
             </div>
         </div>
 @endsection
+

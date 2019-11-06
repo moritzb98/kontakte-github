@@ -23,4 +23,4 @@ Route::resources([
     'kontakt' => 'KontaktController'
 ]);
 
-Route::get('/kontakt/kontaktdetails', 'KontaktController@show');
+Route::get('/kontakt/kontaktdetails/{kontakt}', 'KontaktController@show')->name('kontaktdetails');

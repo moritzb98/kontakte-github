@@ -90,10 +90,10 @@
                                     </div>
                                     </div>
                                     @foreach($data as $kontakt)
-                                        <a href="/kontakte-github/kontakte/public/kontakt/kontaktdetails" class="list-group-item list-group-item-action">{{$kontakt->lastname}}, {{$kontakt->firstname}}</a>
+                                        <a href="{{ route('kontaktdetails', $kontakt->id) }}" class="list-group-item list-group-item-action">{{$kontakt->lastname}}, {{$kontakt->firstname}}</a> 
                                     @endforeach
+                                    
                                     </div>
-                            
                                 </div>
                             </div>
                         </div>
@@ -113,4 +113,6 @@
         </main>
     </div>
 </body>
+<script>
+</script>
 </html>
