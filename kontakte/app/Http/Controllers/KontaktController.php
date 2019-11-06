@@ -111,12 +111,12 @@ class KontaktController extends Controller
      * @param  \App\Kontakt  $kontakt
      * @return \Illuminate\Http\Response
      */
-    public function edit() 
+    public function edit(Kontakt $kontakt) 
     {
         if(isset(Auth::user()->id)){
             $user_id = Auth::user()->id;
             $data=DB::select("select * from kontakts where user_id='$user_id'");
-            return view('layouts.index',['data'=>$data]);
+            return view('layouts.edit',['data'=>$data], compact('kontakt'));
         }else{
             return redirect('login');
         }
