@@ -25,3 +25,4 @@ Route::resources([
 
 Route::get('/kontakt/kontaktdetails/{kontakt}', 'KontaktController@show')->name('kontaktdetails');
 Route::get('/kontakt/kontaktdetails/{kontakt}/edit', 'KontaktController@edit')->name('edit');
+Route::get('/kontakt/kontaktdetails/{kontakt}/delete', 'KontaktController@delete')->name('delete');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kontakt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use DB;
 
 class KontaktController extends Controller
@@ -135,7 +136,7 @@ class KontaktController extends Controller
             $user_id = Auth::user()->id;
             $data=DB::select("select * from kontakts where user_id='$user_id'");
             $kontakt->update(request()->except('_token'));
-            session()->flash('message', 'Kontakt erfolgreich bearbeitet.');
+            Session::flash('message', 'Kontakt erfolgreich bearbeitet.');
             return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
         }else{
             return redirect('login');
@@ -151,7 +152,21 @@ class KontaktController extends Controller
     public function destroy(Kontakt $kontakt)
     {
         if(isset(Auth::user()->id)){
-            
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            $kontakt->delete();
+            Session::flash('messages.messagebad', 'Kontakt gelöscht.');
+            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function delete(Kontakt $kontakt){
+        if(isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.delete', ['data'=>$data], compact('kontakt'));
         }else{
             return redirect('login');
         }

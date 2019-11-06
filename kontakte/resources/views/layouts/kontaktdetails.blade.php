@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <a href="{{route('edit', $kontakt->id)}}" class="btn btn-primary">Bearbeiten</a>
-                        <a href="#" class="btn btn-danger">Löschen</a>
+                        <a href="{{route('delete', $kontakt->id)}}" class="btn btn-danger">Löschen</a>
                     </form>
                 </div>
                  
