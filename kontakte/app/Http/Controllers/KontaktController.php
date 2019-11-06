@@ -156,7 +156,8 @@ class KontaktController extends Controller
             $data=DB::select("select * from kontakts where user_id='$user_id'");
             $kontakt->delete();
             Session::flash('messages.messagebad', 'Kontakt gelöscht.');
-            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
+            return redirect('kontakt');
+            //return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
         }else{
             return redirect('login');
         }
