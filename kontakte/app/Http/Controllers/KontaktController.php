@@ -16,7 +16,8 @@ class KontaktController extends Controller
      */
     public function index()
     {
-        $data=DB::select('select * from kontakts');
+        $user_id = Auth::user()->id;
+        $data=DB::select("select * from kontakts where user_id='$user_id'");
         return view('layouts.index',['data'=>$data]);
         
     }
@@ -28,7 +29,8 @@ class KontaktController extends Controller
      */
     public function create()
     {
-        $data=DB::select('select * from kontakts');
+        $user_id = Auth::user()->id;    
+        $data=DB::select("select * from kontakts where user_id='$user_id'");
         return view('layouts.kontakthinzu', ['data'=>$data]);
     }
 
@@ -69,7 +71,8 @@ class KontaktController extends Controller
         
         Kontakt::create($datanew); 
         $request->session()->flash('message', 'Kontakt wurde erstellt.');
-        $data=DB::select('select * from kontakts');
+        $user_id = Auth::user()->id;    
+        $data=DB::select("select * from kontakts where user_id='$user_id'");
         return view('layouts.index', ['data'=>$data]);
     }
 
