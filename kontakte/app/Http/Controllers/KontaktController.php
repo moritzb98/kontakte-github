@@ -16,9 +16,13 @@ class KontaktController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $data=DB::select("select * from kontakts where user_id='$user_id'");
-        return view('layouts.index',['data'=>$data]);
+        if(isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.index',['data'=>$data]);
+        }else{
+            return redirect('login');
+        }
         
     }
 
@@ -29,9 +33,13 @@ class KontaktController extends Controller
      */
     public function create()
     {
-        $user_id = Auth::user()->id;    
-        $data=DB::select("select * from kontakts where user_id='$user_id'");
-        return view('layouts.kontakthinzu', ['data'=>$data]);
+        if(isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;    
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.kontakthinzu', ['data'=>$data]);
+        }else{
+            return redirect('login');
+        }
     }
 
     /**
@@ -42,38 +50,42 @@ class KontaktController extends Controller
      */
     public function store(Request $request)
     {
-        if($_POST['lastname']==null && $_POST['firstname']==null){
-            $request->validate([
-                'inputLastName' => 'required',
-                'inputFirsttName' => 'required'
-            ]);
-        };
-        
-        if($_POST['housenumber'] == null){
-            $_POST['housenumber'] = 0;
+        if(isset(Auth::user()->id)){
+            if($_POST['lastname']==null && $_POST['firstname']==null){
+                $request->validate([
+                    'inputLastName' => 'required',
+                    'inputFirsttName' => 'required'
+                ]);
+            };
+            
+            if($_POST['housenumber'] == null){
+                $_POST['housenumber'] = 0;
+            }
+
+            if($_POST['tel'] == null){
+                $_POST['tel'] = 0;
+            }
+
+            $datanew = [
+                'user_id' => Auth::user()->id,
+                'lastname' => $_POST['lastname'], 
+                'firstname' => $_POST['firstname'], 
+                'address' => $_POST['address'],
+                'housenumber' => $_POST['housenumber'],
+                'plz' => $_POST['plz'],
+                'stadt' => $_POST['stadt'],
+                'tel' => $_POST['tel']
+            ];
+
+            
+            Kontakt::create($datanew); 
+            $request->session()->flash('message', 'Kontakt wurde erstellt.');
+            $user_id = Auth::user()->id;    
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.index', ['data'=>$data]);
+        }else{
+            return redirect('login');
         }
-
-        if($_POST['tel'] == null){
-            $_POST['tel'] = 0;
-        }
-
-        $datanew = [
-            'user_id' => Auth::user()->id,
-            'lastname' => $_POST['lastname'], 
-            'firstname' => $_POST['firstname'], 
-            'address' => $_POST['address'],
-            'housenumber' => $_POST['housenumber'],
-            'plz' => $_POST['plz'],
-            'stadt' => $_POST['stadt'],
-            'tel' => $_POST['tel']
-        ];
-
-        
-        Kontakt::create($datanew); 
-        $request->session()->flash('message', 'Kontakt wurde erstellt.');
-        $user_id = Auth::user()->id;    
-        $data=DB::select("select * from kontakts where user_id='$user_id'");
-        return view('layouts.index', ['data'=>$data]);
     }
 
     /**
@@ -82,11 +94,15 @@ class KontaktController extends Controller
      * @param  \App\Kontakt  $kontakt
      * @return \Illuminate\Http\Response
      */
-    public function show(Kontakt $kontakt) //Parameter eventuell: Kontakt $kontakt
+    public function show(Kontakt $kontakt) 
     {
-        $user_id = Auth::user()->id;
-        $data=DB::select("select * from kontakts where user_id='$user_id'");
-        return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
+        if(isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
+        }else{
+            return redirect('login');
+        }
     }
 
     /**
@@ -95,11 +111,15 @@ class KontaktController extends Controller
      * @param  \App\Kontakt  $kontakt
      * @return \Illuminate\Http\Response
      */
-    public function edit() //Parameter eventuell: Kontakt $kontakt
+    public function edit() 
     {
-        $user_id = Auth::user()->id;
-        $data=DB::select("select * from kontakts where user_id='$user_id'");
-        return view('layouts.index',['data'=>$data]);
+        if(isset(Auth::user()->id)){
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.index',['data'=>$data]);
+        }else{
+            return redirect('login');
+        }
     }
 
     /**
@@ -111,7 +131,11 @@ class KontaktController extends Controller
      */
     public function update(Request $request, Kontakt $kontakt)
     {
-        //
+        if(isset(Auth::user()->id)){
+
+        }else{
+            return redirect('login');
+        }
     }
 
     /**
@@ -122,6 +146,10 @@ class KontaktController extends Controller
      */
     public function destroy(Kontakt $kontakt)
     {
-        //
+        if(isset(Auth::user()->id)){
+            
+        }else{
+            return redirect('login');
+        }
     }
 }
