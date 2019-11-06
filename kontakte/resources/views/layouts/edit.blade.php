@@ -15,8 +15,9 @@
                         </div>
                     @endif
 
-                    <form>
+                    <form action="{{route('kontakt.update', $kontakt->id)}}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="inputLastName">Nachname</label>
@@ -51,8 +52,9 @@
                             <input type="tel" class="form-control" id="inputNumber" value="{{$kontakt->tel}}" name="tel">
                             </div>
                         </div>
-                        <a href="{{route('kontaktdetails', $kontakt->id)}}" class="btn btn-success">Speichern</a>
-                        <a class="btn btn-danger">Löschen</a>
+                        <button type="submit" class="btn btn-success">Speichern</button>
+                        <a href="{{route('kontaktdetails', $kontakt->id)}}" class="btn btn-danger light">Abbrechen</a>
+                        <a href="#" class="btn btn-danger light">Löschen</a>
                     </form>
                 </div>
                  

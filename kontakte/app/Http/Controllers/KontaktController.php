@@ -132,7 +132,11 @@ class KontaktController extends Controller
     public function update(Request $request, Kontakt $kontakt)
     {
         if(isset(Auth::user()->id)){
-
+            $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            $kontakt->update(request()->except('_token'));
+            session()->flash('message', 'Kontakt erfolgreich bearbeitet.');
+            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
         }else{
             return redirect('login');
         }
