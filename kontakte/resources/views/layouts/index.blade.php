@@ -14,7 +14,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    <h1>Willkommen bei meiner Anwendung!</h1>
+                    <h3>Geschrieben von Moritz Banhardt, ON18</h3>
                 </div>
                  
             </div>
