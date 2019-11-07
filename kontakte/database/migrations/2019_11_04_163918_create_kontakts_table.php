@@ -16,13 +16,13 @@ class CreateKontaktsTable extends Migration
         Schema::create('kontakts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('address');
-            $table->tinyInteger('housenumber');
-            $table->string('plz');
-            $table->string('stadt');
-            $table->string('tel');
+            $table->string('lastname')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('address')->nullable();
+            $table->tinyInteger('housenumber')->nullable();
+            $table->string('plz')->nullable();
+            $table->string('stadt')->nullable();
+            $table->string('tel')->nullable();
             $table->timestamps();
         });
     }
