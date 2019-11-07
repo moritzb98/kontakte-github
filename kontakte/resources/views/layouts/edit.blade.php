@@ -54,7 +54,6 @@
                         </div>
                         <button type="submit" class="btn btn-success">Speichern</button>
                         <a href="{{route('kontaktdetails', $kontakt->id)}}" class="btn btn-danger light">Abbrechen</a>
-                        <a href="#" class="btn btn-danger light">Löschen</a>
                     </form>
                 </div>
                  
