@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/kontakt', 'KontaktController@index')->name('home') //->middleware('auth');
+Route::get('/kontakt', 'KontaktController@index')->name('home'); //->middleware('auth) wäre einfacher
 
 Route::resources([
     'kontakt' => 'KontaktController'

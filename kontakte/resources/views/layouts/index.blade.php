@@ -14,9 +14,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h1>Willkommen bei meiner Anwendung!</h1>
+                    <h1 style="margin: 25px;">Willkommen bei meiner Anwendung!</h1>
                     <img style="max-width: 500px; margin: 25px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Heilbronner_Stimme_Logo.svg/2000px-Heilbronner_Stimme_Logo.svg.png" id="logo">
-                    <h3>Geschrieben von Moritz Banhardt, ON18</h3>
+                    <h3 style="margin: 25px;">Geschrieben von Moritz Banhardt, ON18</h3>
                 </div>
                  
             </div>

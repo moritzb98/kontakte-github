@@ -162,6 +162,7 @@ module.exports = function xhrAdapter(config) {
         config: config,
         request: request
       };
+      
 
       settle(resolve, reject, response);
 
