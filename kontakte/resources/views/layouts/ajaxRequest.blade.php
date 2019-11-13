@@ -5,6 +5,9 @@
 
                 <div class="card-header">Ajax Request Beispiel ohne Sinn</div>
                 <div class="card-body">
+                <p>Das hier ist ein sinnloses Ajax-Beispiel.</p>
+                <p>In diesem Projekt wird Ajax bei der Bearbeitung von Kontakten benutzt, es wird gespeichert und anschließend eine Alert-Message ausgegeben. Allerdings wird trotzdem eine neue Seite geladen, da ich anshcließend auf die kontaktdetails-Seite verlinke, der Ajax-Call findet vorher statt.</p>
+                <hr>
                     <form >
 
 

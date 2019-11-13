@@ -137,10 +137,12 @@ class KontaktController extends Controller
             $data=DB::select("select * from kontakts where user_id='$user_id'");
             $kontakt->update(request()->except('_token'));
             Session::flash('message', 'Kontakt erfolgreich bearbeitet.');
-            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'));
+            //return response()->json(['success'=>'Es hat funktioniert, das ist ein simpler Ajax-Request']);
+            return view('layouts.kontaktdetails',['data'=>$data], compact('kontakt'), response()->json(['success'=>'Es hat funktioniert, das ist ein simpler Ajax-Request']));
         }else{
             return redirect('login');
         }
+    
     }
 
     /**

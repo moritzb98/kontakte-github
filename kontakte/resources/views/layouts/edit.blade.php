@@ -59,5 +59,43 @@
                  
             </div>
         </div>
+        <script type="text/javascript">
+
+            $.ajaxSetup({
+
+                headers: {
+
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+                }
+
+            });
+
+        
+
+            $(".btn-success").click(function(e){
+
+
+                var name = $("input[name=inputLastName]").val();
+
+                $.ajax({
+
+                type:'POST',
+
+                url:'http://localhost:8888/kontakte-github/kontakte/public/ajaxRequest',
+
+                data:{name:name},
+
+                success:function(data){
+
+                    alert(data.success);
+
+                }
+
+                });
+
+            });
+
+        </script>
 @endsection
 
