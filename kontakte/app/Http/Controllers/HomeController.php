@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Kontakt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use DB;
 
 class HomeController extends Controller
 {
@@ -30,4 +34,17 @@ class HomeController extends Controller
         */
         return view('home');
     }
+
+    public function ajaxRequest(){
+        $user_id = Auth::user()->id;
+            $data=DB::select("select * from kontakts where user_id='$user_id'");
+            return view('layouts.ajaxRequest',['data'=>$data]);
+    }
+
+    public function ajaxRequestPost(Request $request){
+        $input = $request->all();
+        return response()->json(['success'=>'Es hat funktioniert, das ist ein simpler Ajax-Request']);
+    }
 }
+
+

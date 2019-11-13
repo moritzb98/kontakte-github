@@ -19,6 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
     <div id="app">
@@ -50,6 +55,7 @@
                                 </li>
                             @endif
                         @else
+                            <a class="nav-link" href="/kontakte-github/kontakte/public/ajaxRequest" role="button">Ajax-Beispiel</a>
                             <a class="nav-link" href="/kontakte-github/kontakte/public/kontakt" role="button">Home</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
